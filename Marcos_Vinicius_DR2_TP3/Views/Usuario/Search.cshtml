@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Marcos_Vinicius_DR2_TP3.Models.Usuario>
+    
+@{
+    ViewBag.Title = "Pesquisar";
+}
+<br/>
+<p>
+    @Html.ActionLink("Voltar para a página principal.", "Index")
+</p>
+<h2>Buscar Usuários</h2>
+<p>Digite o nome do usuário para pesquisar:</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="text" name="search">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Buscar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDeAniversario)
+        </th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobrenome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeAniversario)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.UsuarioId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.UsuarioId }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.UsuarioId })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,41 @@
+﻿@model Marcos_Vinicius_DR2_TP3.Models.Usuario
+
+@{
+    ViewBag.Title = "Detalhes do Usuário";
+}
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.UsuarioId }) |
+    @Html.ActionLink("Voltar para a lista", "Index")
+</p>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeAniversario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataDeAniversario)
+        </dd>
+
+    </dl>
+</div>
